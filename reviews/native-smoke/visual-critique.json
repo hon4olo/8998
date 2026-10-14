@@ -1,0 +1,16 @@
+{
+  "reviewer": "Codex agent",
+  "inspectedFiles": [
+    "reviews/native-smoke/contact-sheet.png"
+  ],
+  "scores": {
+    "hook": null,
+    "phoneReadability": null,
+    "composition": null,
+    "motion": null,
+    "sceneVariety": null,
+    "brandVoiceFidelity": null
+  },
+  "finding": "Actual native output is populated and matches the technical geometric test. Native text/panel or flattened import are visible. Artistic criteria are not certified by this renderer validation.",
+  "independentAcceptance": false
+}

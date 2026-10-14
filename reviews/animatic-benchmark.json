@@ -1,0 +1,18 @@
+{
+  "command": [
+    "npx",
+    "tsx",
+    "scripts/render.ts",
+    "--format",
+    "animatic",
+    "--name",
+    "demo-animatic"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 14.72702423699991,
+  "sampledProcessTreeCpuSeconds": 12.46,
+  "peakProcessTreeRSSMiB": 630.16015625,
+  "samples": 138,
+  "gpu": false,
+  "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"
+}

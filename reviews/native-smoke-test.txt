@@ -1,0 +1,10 @@
+{"project":"out/native-smoke.tsrct"}
+{"output":"out/native-editable.json"}
+{"project":"out/native-smoke.tsrct"}
+warning: the local font is embedded in the .tsrct file; only share or upload it when its license permits redistribution
+{"assetId":"font-57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e","faces":[{"coveredScripts":["cyrillic","greek"],"faceIndex":0,"familyName":"DejaVu Sans","fullName":"DejaVu Sans","isSerif":false,"italic":false,"postscriptName":"DejaVuSans","selectionNames":["DejaVu Sans/Book"],"styleName":"Book","typographicFamilyName":"DejaVu Sans","typographicStyleName":"Book","variationInstances":[],"weight":400,"width":5}],"font":"DejaVuSans","fontFamily":"DejaVu Sans","fontStyle":"Book","project":"out/native-smoke.tsrct","properties":{"faces":[{"coveredScripts":["cyrillic","greek"],"faceIndex":0,"familyName":"DejaVu Sans","fullName":"DejaVu Sans","isSerif":false,"italic":false,"postscriptName":"DejaVuSans","selectionNames":["DejaVu Sans/Book"],"styleName":"Book","typographicFamilyName":"DejaVu Sans","typographicStyleName":"Book","variationInstances":[],"weight":400,"width":5}],"fileName":"DejaVuSans.ttf","mimeType":"font/ttf"}}
+{"appliedActions":4,"project":"out/native-smoke.tsrct"}
+{"frameCount":8,"height":270,"outputPath":"reviews/native-filmstrip.png","resolvedFraming":null,"resolvedSampling":null,"width":1200}
+export: complete — elapsed 1.1s
+{"command": ["/home/agent/.local/share/Tesseract/bin/tsrct", "export", "--project", "out/native-smoke.tsrct", "--resolution", "720p", "--fps", "30", "--encoder-backend", "external-ffmpeg-command", "--ffmpeg-path", "/usr/bin/ffmpeg", "--output", "out/native-smoke.mp4"], "exitCode": 0, "wallSeconds": 1.7181286139999656, "sampledProcessTreeCpuSeconds": 0.83, "peakProcessTreeRSSMiB": 228.140625, "samples": 16, "gpu": false, "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"}
+{"output":"out/native-editable.json"}

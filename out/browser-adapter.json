@@ -1,0 +1,71 @@
+{
+  "$schema": "https://jerboa.dev/schemas/fx-composition/editable/v1/document.schema.json",
+  "formatVersion": 1,
+  "dimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "duration": 8.0,
+  "composition": {
+    "id": "main",
+    "layers": [
+      {
+        "type": "Video",
+        "id": 1,
+        "name": "Flattened deterministic Canvas render",
+        "playback": {
+          "type": "windowed",
+          "inputRange": {
+            "start": 0,
+            "duration": 8000
+          },
+          "mapping": {
+            "type": "linear",
+            "input": {
+              "start": 0,
+              "duration": 8000
+            },
+            "output": {
+              "start": 0,
+              "duration": 8000
+            }
+          },
+          "inputOffsetMs": 0
+        },
+        "sourceRange": {
+          "start": 0,
+          "duration": 8000
+        },
+        "sourceIntrinsicDuration": 8000,
+        "volume": 1,
+        "transform": {
+          "anchorPoint": [
+            0,
+            0
+          ],
+          "position": [
+            0,
+            0
+          ],
+          "scale": [
+            100,
+            100
+          ],
+          "rotation": 0,
+          "opacity": 100
+        },
+        "source": {
+          "assetId": "browser-render",
+          "fit": "contain",
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      }
+    ],
+    "name": "Main"
+  }
+}

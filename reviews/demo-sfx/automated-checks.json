@@ -1,0 +1,35 @@
+{
+  "video": "out/demo-sfx.mp4",
+  "duration": 8.0,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30.0,
+  "samples": 16,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": null,
+  "readabilityHeuristicPass": true,
+  "titleSubtitleOverlapTimes": [],
+  "titleHorizontalOverflowTimes": [],
+  "sync": {
+    "status": "decoded original vs AAC, same clock/no time stretching",
+    "zeroLagCorrelation": 0.999875663240893,
+    "wordCueChecks": [],
+    "passed": true,
+    "note": "Correlation checks timing preservation; semantic alignment requires supplied timestamps and visual/listening review."
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 0,
+    "sha256": [
+      "6028657b7973c9ce1a755e6fb5ad0a86cec6b3968f447b455fe2b1718a1de928",
+      "6028657b7973c9ce1a755e6fb5ad0a86cec6b3968f447b455fe2b1718a1de928"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37",
+    "inheritedFrom": "source Canvas composition exported as demo-vertical; no native overlay added"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

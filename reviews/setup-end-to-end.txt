@@ -1,0 +1,37 @@
+/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3
+/usr/bin/ffmpeg
+/usr/bin/curl
+/usr/bin/unzip
+
+added 10 packages in 608ms
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: Pillow==12.3.0 in /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages (from -r requirements.txt (line 1)) (12.3.0)
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    99  100    99    0     0    186      0 --:--:-- --:--:-- --:--:--   186
+tesseract-0.3.1-linux-x86_64.zip: OK
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 13.5M    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 55 13.5M   55 7744k    0     0  6984k      0  0:00:01  0:00:01 --:--:-- 6982k100 13.5M  100 13.5M    0     0  8256k      0  0:00:01  0:00:01 --:--:-- 8255k
+mesa-vulkan-drivers_25.0.7-2+deb13u1_amd64.deb: OK
+tsrct 0.3.1 (baaf418a83c2f83835a15c12111316559bfc7da3)
+v24.19.0
+Python 3.12.14
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers
+ V....D libx264              libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (codec h264)
+ V....D libx264rgb           libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 RGB (codec h264)
+ A....D aac                  AAC (Advanced Audio Coding)
+✔ headless Chromium really paints a frame (184.461801ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 628.821235
+tsrct 0.3.1 (baaf418a83c2f83835a15c12111316559bfc7da3)
+{"project":"/workspace/777/.runtime/check-iOKz8B/startup.tsrct"}
+Native Vulkan render passed (1080, 1920)

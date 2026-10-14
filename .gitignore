@@ -1,0 +1,10 @@
+node_modules/
+.runtime/
+.frames/
+.env*
+!.env.example
+__pycache__/
+out/frames/
+*.log
+out/*/frame-*.png
+out/*/cache.json

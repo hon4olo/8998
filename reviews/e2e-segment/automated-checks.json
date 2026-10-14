@@ -1,0 +1,31 @@
+{
+  "video": "/workspace/777/out/e2e-segment.mp4",
+  "duration": 0.5,
+  "width": 270,
+  "height": 480,
+  "fps": 30.0,
+  "samples": 1,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": 10.8,
+  "readabilityHeuristicPass": true,
+  "titleSubtitleOverlapTimes": [],
+  "titleHorizontalOverflowTimes": [],
+  "sync": {
+    "status": "no supplied voiceover; not applicable",
+    "passed": null
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 2,
+    "sha256": [
+      "c1729ec308eb82bd887e399045971cc8d38ef3e2ab91605fc74631cb1583b802",
+      "c1729ec308eb82bd887e399045971cc8d38ef3e2ab91605fc74631cb1583b802"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

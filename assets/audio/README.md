@@ -1,0 +1,1 @@
+Supply real narration as voiceover.mp3/WAV. diagnostic-pulses.wav and technical-sfx.wav contain brief procedural test accents only, not speech or music. Original narration is never stretched. No background music generation/addition.

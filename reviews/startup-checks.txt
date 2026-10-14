@@ -1,0 +1,18 @@
+v24.19.0
+Python 3.12.14
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers
+ V....D libx264              libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (codec h264)
+ V....D libx264rgb           libx264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 RGB (codec h264)
+ A....D aac                  AAC (Advanced Audio Coding)
+✔ headless Chromium really paints a frame (252.534112ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 699.421122
+tsrct 0.3.1 (baaf418a83c2f83835a15c12111316559bfc7da3)
+{"project":".runtime/startup.tsrct"}
+Native Vulkan render passed (1080, 1920)

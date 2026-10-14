@@ -1,0 +1,31 @@
+{
+  "video": "/workspace/777/out/patch-test.mp4",
+  "duration": 0.5,
+  "width": 270,
+  "height": 480,
+  "fps": 30.0,
+  "samples": 1,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": 6.120000000000001,
+  "readabilityHeuristicPass": false,
+  "titleSubtitleOverlapTimes": [],
+  "titleHorizontalOverflowTimes": [],
+  "sync": {
+    "status": "no supplied voiceover; not applicable",
+    "passed": null
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 0,
+    "sha256": [
+      "9b654af5c51d9f55967972b9212d9eac5d1ce5cc12203d12d7ef31bf725611f7",
+      "9b654af5c51d9f55967972b9212d9eac5d1ce5cc12203d12d7ef31bf725611f7"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

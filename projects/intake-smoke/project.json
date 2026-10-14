@@ -1,0 +1,28 @@
+{
+  "id": "intake-smoke",
+  "mode": "production",
+  "topic": "Technical intake test — not a ZNAYA film",
+  "duration": 8,
+  "fps": 30,
+  "format": "vertical",
+  "seed": 777,
+  "revision": 1,
+  "loop": false,
+  "voiceover": "projects/intake-smoke/assets/audio/diagnostic-pulses.wav",
+  "accents": [],
+  "scenes": [],
+  "approvals": {
+    "gate1": false,
+    "gate2": false,
+    "gate3": false,
+    "gate4": false,
+    "gate5": false
+  },
+  "materials": {
+    "references": [
+      "projects/intake-smoke/assets/references/frame-00001.png"
+    ],
+    "approvedGraphics": [],
+    "claims": []
+  }
+}

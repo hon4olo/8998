@@ -1,0 +1,9 @@
+{
+  "time": 1,
+  "sha256": [
+    "ac419f45b022372d21971cf19e3094e1cd70ca16c95550a4e9b3f52f9f0d55d4",
+    "ac419f45b022372d21971cf19e3094e1cd70ca16c95550a4e9b3f52f9f0d55d4"
+  ],
+  "pass": true,
+  "renderer": "real Tesseract0.3.1 preview; intervening seek0"
+}

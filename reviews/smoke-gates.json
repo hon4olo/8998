@@ -1,0 +1,10 @@
+{
+ "mode":"smoke",
+ "authorization":"User permits autonomous neutral technical smoke test only",
+ "gate1":{"status":"passed for technical fixtures only","evidence":["docs/brief.md","assets/audio/README.md","reviews/reference-test/analysis.json"],"realProductionApproval":false},
+ "gate2":{"status":"technical style and shotlist documented from actually rendered evidence","evidence":["docs/style_guide.md","docs/shotlist.md"],"realProductionApproval":false},
+ "gate3":{"status":"actual keyframes produced and dense strips reviewed; defects fixed","evidence":["reviews/technical-keyframes/","reviews/iteration-01.md","reviews/iteration-02.md","reviews/iteration-03.md"],"realProductionApproval":false},
+ "gate4":{"status":"actual 960x540 animatic; no real narration supplied, pulse/audio pipeline tested separately","evidence":["out/demo-animatic.mp4","reviews/e2e-audio/automated-checks.json"]},
+ "gate5":{"status":"full real exports and local corrections complete; technical checks pass","aestheticAcceptance":false},
+ "gate6":{"status":"all formats, native source/export, adapter, ffprobe, review evidence and handoff retained","evidence":["docs/ASTRA_HANDOFF.md","docs/TESTING.md","docs/PERFORMANCE.md"]}
+}

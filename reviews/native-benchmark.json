@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/agent/.local/share/Tesseract/bin/tsrct",
+    "export",
+    "--project",
+    "out/native-smoke.tsrct",
+    "--resolution",
+    "720p",
+    "--fps",
+    "30",
+    "--encoder-backend",
+    "external-ffmpeg-command",
+    "--ffmpeg-path",
+    "/usr/bin/ffmpeg",
+    "--output",
+    "out/native-smoke.mp4"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 1.7181286139999656,
+  "sampledProcessTreeCpuSeconds": 0.83,
+  "peakProcessTreeRSSMiB": 228.140625,
+  "samples": 16,
+  "gpu": false,
+  "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"
+}

@@ -1,0 +1,31 @@
+{
+  "video": "/workspace/777/out/demo-animatic.mp4",
+  "duration": 8.0,
+  "width": 960,
+  "height": 540,
+  "fps": 30.0,
+  "samples": 16,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": 10.935,
+  "readabilityHeuristicPass": true,
+  "titleSubtitleOverlapTimes": [],
+  "titleHorizontalOverflowTimes": [],
+  "sync": {
+    "status": "no supplied voiceover; not applicable",
+    "passed": null
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 0,
+    "sha256": [
+      "50167781fd98c2d7575fa64861a1a19187982af332a86ee370c9dc39c0f0248e",
+      "50167781fd98c2d7575fa64861a1a19187982af332a86ee370c9dc39c0f0248e"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

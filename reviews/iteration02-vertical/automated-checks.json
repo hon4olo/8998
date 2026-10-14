@@ -1,0 +1,29 @@
+{
+  "video": "/workspace/777/out/demo-vertical.mp4",
+  "duration": 8.0,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30.0,
+  "samples": 16,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": 10.8,
+  "readabilityHeuristicPass": true,
+  "sync": {
+    "status": "no supplied voiceover; not applicable",
+    "passed": null
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 0,
+    "sha256": [
+      "8c7283fcf620c86241d2ee7957d48f67f8b6b62854ad297e0cbb2bd994dccc18",
+      "8c7283fcf620c86241d2ee7957d48f67f8b6b62854ad297e0cbb2bd994dccc18"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

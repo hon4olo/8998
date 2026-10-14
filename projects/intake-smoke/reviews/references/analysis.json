@@ -1,0 +1,20 @@
+[
+  {
+    "source": "/workspace/777/projects/intake-smoke/assets/references/frame-00001.png",
+    "frames": [
+      {
+        "frame": "/workspace/777/projects/intake-smoke/reviews/references/000-frame-00001/frame-00001.png",
+        "colors": [
+          "#050f17",
+          "#1b353c",
+          "#040d16",
+          "#060f18",
+          "#040f16"
+        ]
+      }
+    ],
+    "candidateCuts": [],
+    "candidateShotLengths": [],
+    "copyright": "Study grammar only; no logos, characters or copied content."
+  }
+]

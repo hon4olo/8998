@@ -1,0 +1,8 @@
+{
+  "mechanicalPass": false,
+  "problems": [
+    "independent acceptance missing; model score alone cannot certify \u22658",
+    "unassessed criterion or score below 8"
+  ],
+  "scope": "This gate cannot measure hook quality or scientific/narration fidelity."
+}

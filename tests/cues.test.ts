@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {activeWords,wordCue,phraseWindow} from '../src/utilities/time';
+test('supplied word/phrase anchors and half-open caption boundaries',()=>{const w=[{word:'test',start:1,end:1.4},{word:'anchor',start:1.5,end:2},{word:'test',start:2.1,end:2.5}];assert.equal(wordCue(w,'test',1),2.1);assert.deepEqual(phraseWindow(w,0,1),[1,2]);assert.equal(activeWords(w,1).length,1);assert.equal(activeWords(w,1.4).length,0);assert.throws(()=>wordCue(w,'missing'));assert.throws(()=>phraseWindow(w,2,1));});

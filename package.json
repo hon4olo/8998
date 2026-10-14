@@ -1,0 +1,45 @@
+{
+  "name": "znaya-motion-studio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc",
+    "render": "tsx scripts/render.ts",
+    "preview": "tsx scripts/preview.ts",
+    "new": "tsx scripts/new-project.ts",
+    "check": "bash scripts/startup-checks.sh",
+    "references": "python3 scripts/references.py",
+    "audio": "python3 scripts/audio.py",
+    "tesseract": "bash scripts/tesseract-smoke.sh",
+    "setup": "bash scripts/setup.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivangemini/777.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ivangemini/777/issues"
+  },
+  "homepage": "https://github.com/ivangemini/777#readme",
+  "devDependencies": {
+    "@types/node": "24.9.1",
+    "esbuild": "0.25.11",
+    "playwright": "1.56.1",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24.19.0 <25"
+  }
+}

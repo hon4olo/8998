@@ -1,0 +1,170 @@
+[
+  {
+    "source": "out/initial-vertical.mp4",
+    "frames": [
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00001.png",
+        "colors": [
+          "#050f17",
+          "#1b353c",
+          "#040d16",
+          "#060f18",
+          "#040f16"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00002.png",
+        "colors": [
+          "#050f17",
+          "#1b353c",
+          "#040d16",
+          "#050f16",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00003.png",
+        "colors": [
+          "#050f17",
+          "#1b363c",
+          "#040d16",
+          "#050f16",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00004.png",
+        "colors": [
+          "#050f17",
+          "#1b353c",
+          "#040d16",
+          "#050f16",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00005.png",
+        "colors": [
+          "#050f17",
+          "#060f19",
+          "#26464b",
+          "#040c15",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00006.png",
+        "colors": [
+          "#050f17",
+          "#253d44",
+          "#060f19",
+          "#040c15",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00007.png",
+        "colors": [
+          "#050f17",
+          "#253e44",
+          "#060f18",
+          "#040c15",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00008.png",
+        "colors": [
+          "#050f17",
+          "#253e44",
+          "#070f18",
+          "#040c15",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00009.png",
+        "colors": [
+          "#050f17",
+          "#253e44",
+          "#060f18",
+          "#040c15",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00010.png",
+        "colors": [
+          "#050f17",
+          "#253e44",
+          "#060f18",
+          "#040c15",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00011.png",
+        "colors": [
+          "#050f17",
+          "#213b41",
+          "#040d16",
+          "#070f19",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00012.png",
+        "colors": [
+          "#050f17",
+          "#233b42",
+          "#040d16",
+          "#070f19",
+          "#040f16"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00013.png",
+        "colors": [
+          "#050f17",
+          "#233b42",
+          "#070f18",
+          "#040c16",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00014.png",
+        "colors": [
+          "#050f17",
+          "#233b42",
+          "#040d16",
+          "#070f18",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00015.png",
+        "colors": [
+          "#050f17",
+          "#233b42",
+          "#040d16",
+          "#070f18",
+          "#040f17"
+        ]
+      },
+      {
+        "frame": "reviews/reference-test/000-initial-vertical/frame-00016.png",
+        "colors": [
+          "#050f17",
+          "#233b42",
+          "#040d16",
+          "#070f18",
+          "#040f17"
+        ]
+      }
+    ],
+    "candidateCuts": [],
+    "candidateShotLengths": [],
+    "copyright": "Study grammar only; no logos, characters or copied content."
+  }
+]

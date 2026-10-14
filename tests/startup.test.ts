@@ -1,0 +1,2 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {openRenderer} from '../scripts/browser';
+test('headless Chromium really paints a frame',async()=>{const p=JSON.parse(await readFile('projects/smoke/project.json','utf8'));const r=await openRenderer(p,360,640);try{await r.page.evaluate(()=>window.seek(1));const im=await r.page.screenshot();assert(im.length>3000);}finally{await r.close();}});

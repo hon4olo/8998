@@ -1,0 +1,21 @@
+{
+  "reviewer": "Codex agent, actual image inspection",
+  "independentAcceptance": false,
+  "scores": {
+    "hook": 7,
+    "phoneReadability": 8,
+    "composition": 8,
+    "motion": 8,
+    "sceneVariety": 6,
+    "brandVoiceFidelity": null
+  },
+  "limitations": [
+    "sampled raster evidence, no complete video audition",
+    "no real narration/brand materials",
+    "not a production film or independent artistic certification"
+  ],
+  "report": "reviews/iteration-03.md",
+  "inspectedFiles": [
+    "reviews/demo-wide/contact-sheet.png"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "node": "24.19.0",
+  "python": "3.12.14",
+  "ffmpeg": "7.1.5-0+deb13u1",
+  "playwright": "1.56.1",
+  "chromium": "141.0.7390.37 (build 1194)",
+  "typescript": "5.9.3",
+  "tsx": "4.20.6",
+  "esbuild": "0.25.11",
+  "pillow": "12.3.0",
+  "tesseract": "0.3.1",
+  "tesseractBuild": "baaf418a83c2f83835a15c12111316559bfc7da3",
+  "officialSkillsCommit": "fbc945864d0d758ea510fe6f2b6ab06d2660d570",
+  "archiveSHA256": "64dcde94e2e717073b1c56d36473a03a9448fa0f19f6a3a19b567c2bcdbdad6a",
+  "mesa": "25.0.7-2+deb13u1",
+  "mesaSHA256": "caf2f7d296b7522efe74e40a74bce762a3ce84c33b53b5e54e1248ac2e0a13a5",
+  "runtime": "Linux x86_64 glibc2.41; CPU Mesa lavapipe"
+}

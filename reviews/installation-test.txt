@@ -1,0 +1,14 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  1 87.9M    1 1548k    0     0  2295k      0  0:00:39 --:--:--  0:00:39 2295k 55 87.9M   55 49.1M    0     0  29.2M      0  0:00:03  0:00:01  0:00:02 47.3M100 87.9M  100 87.9M    0     0  33.1M      0  0:00:02  0:00:02 --:--:-- 43.6M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    99  100    99    0     0    159      0 --:--:-- --:--:-- --:--:--   159
+tesseract-0.3.1-linux-x86_64.zip: OK
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 41 13.5M   41 5725k    0     0  5714k      0  0:00:02  0:00:01  0:00:01 5719k100 13.5M  100 13.5M    0     0  8035k      0  0:00:01  0:00:01 --:--:-- 8040k
+mesa-vulkan-drivers_25.0.7-2+deb13u1_amd64.deb: OK
+tsrct 0.3.1 (baaf418a83c2f83835a15c12111316559bfc7da3)

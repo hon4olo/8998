@@ -1,0 +1,14 @@
+{
+  "wallSeconds": 9.41503836,
+  "nodeCpu": {
+    "user": 707945,
+    "system": 99674
+  },
+  "nodeMaxRSSKiB": 124620,
+  "width": 960,
+  "height": 540,
+  "frames": 240,
+  "patchRanges": null,
+  "gpu": false,
+  "note": "node CPU/RSS exclude Chromium and FFmpeg; see process-tree benchmark"
+}

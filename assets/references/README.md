@@ -1,0 +1,1 @@
+Accept image, video or a folder of samples through scripts/references.py. Real artistic references have not yet been supplied. reviews/reference-test contains extraction of our own technical test, explicitly not a brand reference.

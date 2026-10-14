@@ -1,0 +1,7 @@
+import json
+T=lambda x,y:{'anchorPoint':[0,0],'position':[x,y],'scale':[100,100],'rotation':0,'opacity':100}
+a=[{'type':'createFxRectLayer','compositionId':'main','layerId':1,'name':'Native editable geometric panel','activeRange':{'start':0,'duration':2000},'transform':T(80,140),'rect':{'size':[180,120],'fillColor':[.08,.45,.42,1],'roundness':24}},
+{'type':'createFxTextLayer','compositionId':'main','layerId':2,'name':'Native editable title','insertIndex':0,'activeRange':{'start':0,'duration':2000},'transform':T(40,35),'sourceText':{'text':'NATIVE RUNTIME TEST','fontFamily':'DejaVu Sans','fontStyle':'Book','fontSize':30,'fillColor':[.94,.97,1,1],'justification':'left','boxText':True,'boxPosition':[0,0],'boxSize':[560,80]}},
+{'type':'setFxPropertyAnimator','compositionId':'main','property':{'layerId':1,'propertyType':'positionX'},'animator':{'type':'jsScript','layerTimeJsCode':'const t = input.time.seconds; const w=12,z=.68,d=w*Math.sqrt(1-z*z); const s=1-Math.exp(-z*w*t)*(Math.cos(d*t)+z*w/d*Math.sin(d*t)); return 80+240*s;'},'dependencies':[]},
+{'type':'setFxPropertyKeyframes','compositionId':'main','property':{'layerId':1,'propertyType':'rotation'},'keyframes':[{'id':'r0','layerTime':0,'value':{'type':'float','value':-12},'easing':{'type':'linear'}},{'id':'r1','layerTime':700,'value':{'type':'float','value':0},'easing':{'type':'cubicBezier','x1':.2,'y1':0,'x2':.2,'y2':1}}]}]
+json.dump(a,open('out/native-actions.json','w'),indent=2)

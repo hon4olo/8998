@@ -1,0 +1,18 @@
+{
+  "command": [
+    "npx",
+    "tsx",
+    "scripts/render.ts",
+    "--format",
+    "wide",
+    "--name",
+    "demo-wide"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 33.16083091999985,
+  "sampledProcessTreeCpuSeconds": 41.57,
+  "peakProcessTreeRSSMiB": 754.625,
+  "samples": 295,
+  "gpu": false,
+  "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"
+}

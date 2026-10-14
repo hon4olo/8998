@@ -1,0 +1,287 @@
+[
+  {
+    "time": 0,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.03333333333333333,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.06666666666666667,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.1,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.13333333333333333,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.16666666666666666,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.2,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.23333333333333334,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.26666666666666666,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.3,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.3333333333333333,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.36666666666666664,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.4,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.43333333333333335,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  },
+  {
+    "time": 0.4666666666666667,
+    "scene": "form",
+    "title": "FORM",
+    "titleBounds": {
+      "x": 20.25,
+      "y": 65.55000000000001,
+      "width": 74.86863708496094,
+      "height": 25.65
+    },
+    "subtitleBounds": {
+      "x": 20.25,
+      "y": 104.16,
+      "height": 4.590000000000001
+    },
+    "minTextPhonePx": 6.120000000000001,
+    "camera": 1,
+    "morph": 0
+  }
+]

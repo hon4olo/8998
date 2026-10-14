@@ -1,0 +1,93 @@
+[
+  {
+    "path": "out/demo-vertical.mp4",
+    "bytes": 362604,
+    "sha256": "c9c0af156eee178e8364202fcdc8b2e242a8366844c0cad77eaac16de0d67c97",
+    "width": 1080,
+    "height": 1920,
+    "frames": 240,
+    "duration": 8.0,
+    "videoCodec": "h264",
+    "audioCodecs": []
+  },
+  {
+    "path": "out/demo-wide.mp4",
+    "bytes": 373087,
+    "sha256": "3d6eb28630e3a68571bb2218d5cf49fb1c91c997c859dd400fb4ddd2d61da7df",
+    "width": 1920,
+    "height": 1080,
+    "frames": 240,
+    "duration": 8.0,
+    "videoCodec": "h264",
+    "audioCodecs": []
+  },
+  {
+    "path": "out/demo-square.mp4",
+    "bytes": 351579,
+    "sha256": "2b974b91253e0b6adcb69de9b41e78c16d8d0ad2158425564eda1e44189503d6",
+    "width": 1080,
+    "height": 1080,
+    "frames": 240,
+    "duration": 8.0,
+    "videoCodec": "h264",
+    "audioCodecs": []
+  },
+  {
+    "path": "out/demo-animatic.mp4",
+    "bytes": 190584,
+    "sha256": "c81bd7e89ac00351d0c74ce16f14bf9598c73afddd26af3c04a7902b2675cd1c",
+    "width": 960,
+    "height": 540,
+    "frames": 240,
+    "duration": 8.0,
+    "videoCodec": "h264",
+    "audioCodecs": []
+  },
+  {
+    "path": "out/native-smoke.mp4",
+    "bytes": 30207,
+    "sha256": "e833ccb31894f70ca1226a2f3916d72b7b818775d49d474cd52534ed5691e027",
+    "width": 426,
+    "height": 240,
+    "frames": 60,
+    "duration": 2.0,
+    "videoCodec": "h264",
+    "audioCodecs": []
+  },
+  {
+    "path": "out/browser-adapter.mp4",
+    "bytes": 2354794,
+    "sha256": "4b303bab6b4ccdb0d1c4ed3e85eda39cfaea95c0f9658da1c544ef9fdc37a843",
+    "width": 720,
+    "height": 1280,
+    "frames": 240,
+    "duration": 8.0,
+    "videoCodec": "h264",
+    "audioCodecs": [
+      "aac"
+    ]
+  },
+  {
+    "path": "out/demo-sfx.mp4",
+    "bytes": 374425,
+    "sha256": "0c5109c3a4caed71f3534d7d6a3c1d0cefc181904ed43e7eba5a5beb13efa023",
+    "width": 1080,
+    "height": 1920,
+    "frames": 240,
+    "duration": 8.0,
+    "videoCodec": "h264",
+    "audioCodecs": [
+      "aac"
+    ]
+  },
+  {
+    "path": "out/native-smoke.tsrct",
+    "bytes": 766239,
+    "sha256": "79b8a00ebd829dee2c6531952bf06a9b4a6fcf33e96294f8a2b5ec16e5025def"
+  },
+  {
+    "path": "out/browser-adapter.tsrct",
+    "bytes": 365478,
+    "sha256": "f59645087878e97751d4fcd05ee6d10989d65f775f6e687b7e4f631689d24ce9"
+  }
+]

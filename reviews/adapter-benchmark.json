@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/agent/.local/share/Tesseract/bin/tsrct",
+    "export",
+    "--project",
+    "out/browser-adapter.tsrct",
+    "--resolution",
+    "720p",
+    "--fps",
+    "30",
+    "--encoder-backend",
+    "external-ffmpeg-command",
+    "--ffmpeg-path",
+    "/usr/bin/ffmpeg",
+    "--output",
+    "out/browser-adapter.mp4"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 11.244416640000054,
+  "sampledProcessTreeCpuSeconds": 20.89,
+  "peakProcessTreeRSSMiB": 462.4453125,
+  "samples": 100,
+  "gpu": false,
+  "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"
+}
