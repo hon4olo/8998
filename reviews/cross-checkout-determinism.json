@@ -1,0 +1,24 @@
+{
+  "original": {
+    "time": 3.25,
+    "hashes": [
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61",
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61",
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61",
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61"
+    ],
+    "pass": true
+  },
+  "freshCheckout": {
+    "time": 3.25,
+    "hashes": [
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61",
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61",
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61",
+      "71ec3c38409df9119a347b1826484d366bbbdab93289977533d5c38989894d61"
+    ],
+    "pass": true
+  },
+  "pass": true,
+  "scope": "same hardware/browser build, separate git checkout and browser instances"
+}

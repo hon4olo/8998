@@ -150,7 +150,7 @@ HTTP/1.1 200 OK
 date: Wed, 14 Oct 2026 10:18:27 GMT
 server: envoy
 
-HTTP/2 200 
+HTTP/2 200
 date: Wed, 14 Oct 2026 10:18:22 GMT
 content-type: text/html; charset=utf-8
 content-language: en-US
@@ -188,7 +188,7 @@ HTTP/1.1 200 OK
 date: Wed, 14 Oct 2026 10:18:27 GMT
 server: envoy
 
-HTTP/2 200 
+HTTP/2 200
 date: Wed, 14 Oct 2026 10:18:28 GMT
 content-type: application/json
 cache-control: public, immutable, max-age=31557600
@@ -213,7 +213,7 @@ HTTP/1.1 200 OK
 date: Wed, 14 Oct 2026 10:18:28 GMT
 server: envoy
 
-HTTP/2 200 
+HTTP/2 200
 content-security-policy: base-uri 'self'; connect-src 'self' https://api.github.com/repos/ https://api.github.com/search/issues https://gitlab.com/api/ https://analytics.python.org *.ethicalads.io https://api.pwnedpasswords.com https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/sre/mathmaps/ https://2p66nmmycsj3.statuspage.io; default-src 'none'; font-src 'self'; form-action 'self' https://checkout.stripe.com https://billing.stripe.com; frame-ancestors 'none'; frame-src 'none'; img-src 'self' https://pypi-camo.freetls.fastly.net/ *.ethicalads.io ethicalads.blob.core.windows.net; script-src 'self' https://analytics.python.org *.ethicalads.io 'sha256-U3hKDidudIaxBDEzwGJApJgPEf2mWk6cfMWghrAa6i0=' https://cdn.jsdelivr.net/npm/mathjax@3.2.2/ 'sha256-1CldwzdEg2k1wTmf7s5RWVd7NMXI/7nxxjJM2C4DqII='; style-src 'self' *.ethicalads.io 'sha256-2YHqZokjiizkHi1Zt+6ar0XJ0OeEy/egBnlm+MDMtrM=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-JLEjeN9e5dGsz5475WyRaoA4eQOdNPxDIeUhclnJDCE=' 'sha256-mQyxHEuwZJqpxCw3SLmc4YOySNKXunyu2Oiz1r3/wAE=' 'sha256-OCf+kv5Asiwp++8PIevKBYSgnNLNUZvxAp4a7wMLuKA=' 'sha256-h5LOiLhk6wiJrGsG5ItM0KimwzWQH/yAcmoJDJL//bY='
 referrer-policy: origin-when-cross-origin
 server: envoy

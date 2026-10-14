@@ -1,0 +1,25 @@
+
+> znaya-motion-studio@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ supplied WAV preservation and accent timing through real AAC mux (3091.125082ms)
+✔ supplied word/phrase anchors and half-open caption boundaries (1.562076ms)
+✔ out-of-order seeks and fresh browser produce identical SHA-256 (409.883591ms)
+✔ end-to-end real segment MP4 export and mandatory review evidence (2849.154163ms)
+✔ closed-form spring initial and terminal boundaries for under/critical/over damping (0.947018ms)
+✔ underdamped overshoots, critical is monotonic (1.264456ms)
+✔ superposed changes preserve event continuity without history (0.332201ms)
+✔ indexed seeded randomness and morph endpoints (0.833817ms)
+✔ reference video extracts real frames every 0.5 second (574.522032ms)
+✔ partial correction replaces selected cached frames and rebuilds a full real MP4 (3055.894385ms)
+✔ headless Chromium really paints a frame (203.233706ms)
+✔ variable scene lengths cover timeline exactly (1.293821ms)
+✔ real production gates cannot bypass approvals (0.458061ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11977.593442

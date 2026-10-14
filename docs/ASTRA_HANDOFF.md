@@ -102,3 +102,5 @@ Linux без /dev/dri, Vulkan через Mesa lavapipe с local ICD/library path
 Container limits measured from /sys/fs/cgroup: cpu.max = 200000 100000 (2 CPU quota), memory.max = 8589934592 (8 GiB). nproc reports 3 available affinity CPUs and free reports ~9.7 GiB host-visible memory; effective container capacity is 2 CPU / 8 GiB, not those larger host/affinity figures. FFmpeg uses 3 threads within that quota.
 
 Финальная верификация: 13 тестов passed/0 failed; полная setup-команда выполнена end-to-end, повторный startup прошёл. Все четыре delivery format прошли mechanical quality gates. Видеофайлы и review evidence сохранены в Git вместе с `.tsrct`; cache frames и runtime downloads исключены. Отдельный `out/demo-sfx.mp4` — реально смонтированные короткие диагностические SFX, не музыка и не дикторская речь.
+
+После публикации выполнена проверка из отдельного свежего GitHub-клона: полный setup, Chromium/Vulkan startup, 13/13 тестов и SHA256 всех9 deliverables прошли. Проверка проводилась на той же cloud-машине с общими системными библиотеками/cache, а не на другом аппаратном сервере.
