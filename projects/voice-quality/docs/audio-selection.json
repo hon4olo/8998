@@ -1,0 +1,12 @@
+{
+  "source": "projects/voice-quality/assets/voiceover-original.mp3",
+  "sha256": "213c491ea67f09ca593975e7701eb3f9eb803d907ab98b9f33a87174eef3f686",
+  "sourceDuration": 95.085688,
+  "start": 28.72,
+  "end": 41.12,
+  "duration": 12.4,
+  "selectedText": "В разных тканях часть его превращается в более активный Т3, а уже Т3 связывается с внутриклеточными тиреоидными рецепторами и влияет на экспрессию генов.",
+  "reason": "Continuous complete biochemical mechanism, no topic change, ends before next sentence.",
+  "timingMethod": "local faster-whisper small CPU/int8 word timestamps; reviewed against transcript and waveform, no manual listening claim",
+  "processing": "decode original MP3; sample-accurate trim to PCM24, no tempo/pitch/gain changes; final AAC encoding only"
+}

@@ -33,6 +33,7 @@
   "homepage": "https://github.com/ivangemini/777#readme",
   "devDependencies": {
     "@types/node": "24.9.1",
+    "@types/three": "0.180.0",
     "esbuild": "0.25.11",
     "playwright": "1.56.1",
     "tsx": "4.20.6",
@@ -41,5 +42,8 @@
   "private": true,
   "engines": {
     "node": ">=24.19.0 <25"
+  },
+  "dependencies": {
+    "three": "0.180.0"
   }
 }

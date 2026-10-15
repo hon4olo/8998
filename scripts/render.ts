@@ -7,11 +7,14 @@ const dims=formats[project.format].map(x=>Math.round(x*scale/2)*2);const [w,h]=d
 if(start<0||end>project.duration||end<=start)throw Error('invalid segment');
 const patch=args.includes('--patch');const first=patch?0:Math.round(start*project.fps),last=patch?Math.round(project.duration*project.fps):Math.round(end*project.fps);const ranges=opt('--ranges',`${start}:${end}`).split(',').map(r=>r.split(':').map(Number));if(ranges.some(r=>r.length!==2||r[0]<0||r[1]>project.duration||r[0]>=r[1]))throw Error('invalid patch ranges');if(last<=first)throw Error('empty segment');
 const name=opt('--name',`${project.id}-${project.format}`);if(!/^[a-zA-Z0-9_-]+$/.test(name))throw Error('invalid output name');const dir=resolve('out',name),review=resolve('reviews',name);await mkdir(dir,{recursive:true});await mkdir(review,{recursive:true});if(patch){const old=JSON.parse(await readFile(`${dir}/cache.json`,'utf8'));if(old.width!==w||old.height!==h||old.fps!==project.fps||old.frameCount!==last)throw Error('incompatible frame cache');for(let i=0;i<last;i++)await readFile(`${dir}/frame-${String(i).padStart(5,'0')}.png`);}
+// A patch must not repaint unaffected WebGL frames merely to reproduce metadata.
+const cachedMetadata=patch?JSON.parse(await readFile(`${review}/frames.json`,'utf8')):null;
+if(patch&&cachedMetadata.length!==last)throw Error('incompatible metadata cache');
 const begin=performance.now();const renderer=await openRenderer(project,w,h);const cpu=process.cpuUsage();const metadata=[];
 try{
  await renderer.page.evaluate(t=>window.seek(t),start);const a=await renderer.page.screenshot();await renderer.page.evaluate(t=>window.seek(t),(start+end)/2);await renderer.page.evaluate(t=>window.seek(t),start);const b=await renderer.page.screenshot();const hash=(x:Buffer)=>createHash('sha256').update(x).digest('hex');if(hash(a)!==hash(b))throw Error('determinism failure');
  await writeFile(`${review}/determinism.json`,JSON.stringify({time:start,sha256:[hash(a),hash(b)],pass:true,browser:renderer.browser.version()},null,2));
- for(let i=first;i<last;i++){const time=i/project.fps;const meta=await renderer.page.evaluate(t=>window.seek(t),time);metadata.push(meta);if(!patch||ranges.some(([a,b])=>time>=a&&time<b))await renderer.page.screenshot({path:`${dir}/frame-${String(i-first).padStart(5,'0')}.png`});}
+ for(let i=first;i<last;i++){const time=i/project.fps;const changed=!patch||ranges.some(([a,b])=>time>=a&&time<b);if(!changed){metadata.push(cachedMetadata[i]);continue;}const meta=await renderer.page.evaluate(t=>window.seek(t),time);metadata.push(meta);await renderer.page.screenshot({path:`${dir}/frame-${String(i-first).padStart(5,'0')}.png`});}
 }finally{await renderer.close();}await writeFile(`${dir}/cache.json`,JSON.stringify({width:w,height:h,fps:project.fps,frameCount:last-first,revision:project.revision}));
 const run=(cmd:string,a:string[])=>{const r=spawnSync(cmd,a,{encoding:'utf8'});if(r.status!==0)throw Error(r.stderr);return r.stdout;};
 const output=resolve('out',`${name}.mp4`),ff=['-y','-v','error','-framerate',String(project.fps),'-i',`${dir}/frame-%05d.png`];

@@ -1,0 +1,12 @@
+{
+  "sourceInterval": [
+    28.72,
+    41.12
+  ],
+  "sampleRate": 44100,
+  "sourceSamples": 546840,
+  "excerptSamples": 546840,
+  "maxAbsPCMError": 1.1897463991772383e-07,
+  "correlation": 0.9999999999999755,
+  "passed": true
+}

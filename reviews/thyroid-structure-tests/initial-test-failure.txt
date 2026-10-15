@@ -1,0 +1,48 @@
+
+> znaya-motion-studio@1.0.0 test
+> tsx --test tests/*.test.ts
+
+✔ supplied WAV preservation and accent timing through real AAC mux (6798.56216ms)
+✔ supplied word/phrase anchors and half-open caption boundaries (1.937321ms)
+✔ out-of-order seeks and fresh browser produce identical SHA-256 (1488.039448ms)
+✔ end-to-end real segment MP4 export and mandatory review evidence (5168.189916ms)
+✔ closed-form spring initial and terminal boundaries for under/critical/over damping (1.305648ms)
+✔ underdamped overshoots, critical is monotonic (32.355535ms)
+✔ superposed changes preserve event continuity without history (0.363558ms)
+✔ indexed seeded randomness and morph endpoints (0.887238ms)
+✔ reference video extracts real frames every 0.5 second (1502.942183ms)
+✔ partial correction replaces selected cached frames and rebuilds a full real MP4 (7403.909988ms)
+✔ headless Chromium really paints a frame (704.149438ms)
+✔ thyroid composition: arbitrary seeks repeat across fresh browser sessions (29223.677838ms)
+✔ retained official coordinate sources match provenance SHA256 (8.617902ms)
+✔ T4 to T3 retains chemical graph after outer ring iodine removal (1.158376ms)
+✖ rendered receptor trace is the deposited 2H77 CA geometry up to rigid transform (5.856499ms)
+✔ variable scene lengths cover timeline exactly (5.402845ms)
+✔ real production gates cannot bypass approvals (2.412156ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 57950.403382
+
+✖ failing tests:
+
+test at tests/thyroid-structure.test.ts:1:1038
+✖ rendered receptor trace is the deposited 2H77 CA geometry up to rigid transform (5.856499ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  256 !== 255
+  
+      at TestContext.<anonymous> (/workspace/777/tests/thyroid-structure.test.ts:18:45)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 256,
+    expected: 255,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

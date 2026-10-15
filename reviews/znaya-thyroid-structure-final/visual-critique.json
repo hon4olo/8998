@@ -1,0 +1,23 @@
+{
+  "reviewer": "assistant; actual image inspection",
+  "independentAcceptance": false,
+  "manualAudioAudition": false,
+  "inspectedFiles": [
+    "contact-sheet.png",
+    "phone-receptor.png",
+    "phone-dna.png",
+    "transition-response.png",
+    "transition-reveal.png",
+    "endpoints.png"
+  ],
+  "scores": {
+    "hook": 7.5,
+    "phoneReadability": 8.5,
+    "composition": 8,
+    "movement": 8,
+    "sceneVariety": 8,
+    "scientificNarrationBrandFidelity": 8
+  },
+  "scope": "Subjective image-based assessment; scientific geometry validated separately. No approved brand typeface or independent final acceptance.",
+  "report": "../thyroid-structure-critique.md"
+}

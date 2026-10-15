@@ -1,0 +1,136 @@
+import {clamp,mix,noise,spring,springs} from '../src/animation/math';
+import type {Project} from '../src/types';
+
+type V3=[number,number,number];type P2={x:number;y:number;z:number;k:number};
+const TAU=Math.PI*2;
+const ink='#07181d',ivory='#f0e8d9',mint='#8bbfb5',gold='#e5ad71';
+const ease=(t:number,a:number,b:number)=>{const u=clamp((t-a)/(b-a));return u*u*u*(u*(u*6-15)+10);};
+const smooth=(t:number,a:number,b:number)=>{const u=clamp((t-a)/(b-a));return u*u*(3-2*u);};
+function path(c:CanvasRenderingContext2D,pts:[number,number][],close=false){c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));if(close)c.closePath();}
+function project(p:V3,ry:number,rx:number,scale=1):P2{const ca=Math.cos(ry),sa=Math.sin(ry),cb=Math.cos(rx),sb=Math.sin(rx);const x=p[0]*ca+p[2]*sa,z0=-p[0]*sa+p[2]*ca,y=p[1]*cb-z0*sb,z=p[1]*sb+z0*cb;const k=1100/(1100-z);return {x:x*k*scale,y:y*k*scale,z,k};}
+function sphere(c:CanvasRenderingContext2D,x:number,y:number,r:number,kind:'gold'|'mint'|'pearl'|'dark',alpha=1){
+ c.save();c.globalAlpha*=alpha;const g=c.createRadialGradient(x-r*.36,y-r*.42,r*.02,x+r*.1,y+r*.12,r*1.05);
+ const colors=kind==='gold'?['#fff0ce','#dfac6c','#835039','#382e2a']:kind==='pearl'?['#fff9ec','#c6c7bb','#647a77','#1c4245']:kind==='mint'?['#d4e8dc','#80b2a8','#335d5e','#102c33']:['#7b9e9b','#294b53','#102b35','#091d23'];
+ g.addColorStop(0,colors[0]);g.addColorStop(.35,colors[1]);g.addColorStop(.79,colors[2]);g.addColorStop(1,colors[3]);c.fillStyle=g;c.beginPath();c.arc(x,y,Math.max(.1,r),0,TAU);c.fill();
+ c.strokeStyle=kind==='gold'?'rgba(255,231,190,.3)':'rgba(211,232,217,.19)';c.lineWidth=.8;c.stroke();c.restore();
+}
+function tube(c:CanvasRenderingContext2D,a:P2,b:P2,width:number,color='mint'){
+ c.lineCap='round';const g=c.createLinearGradient(a.x,a.y,b.x,b.y);g.addColorStop(0,color==='gold'?'#8d633f':'#29494d');g.addColorStop(.45,color==='gold'?'#e9be83':'#c1d0be');g.addColorStop(1,color==='gold'?'#9c6945':'#52736e');c.strokeStyle=g;c.lineWidth=width*(a.k+b.k)/2;c.beginPath();c.moveTo(a.x,a.y);c.lineTo(b.x,b.y);c.stroke();
+}
+// Stylized volumetric tissue cells. No atlas or exact histological identity is implied.
+function cell(c:CanvasRenderingContext2D,x:number,y:number,r:number,depth:number,t:number){
+ c.save();c.translate(x,y);c.rotate(-.22+depth*.06);c.scale(1,.94+depth*.13);
+ const pts:[number,number][]=[];for(let i=0;i<120;i++){const a=i/120*TAU;const rr=r*(1+.055*Math.sin(a*3+depth)+.025*Math.cos(a*5));pts.push([Math.cos(a)*rr,Math.sin(a)*rr]);}
+ const fill=c.createRadialGradient(-r*.35,-r*.4,r*.02,r*.1,r*.12,r*1.1);fill.addColorStop(0,'#426a67');fill.addColorStop(.35,'#1e454b');fill.addColorStop(.83,'#0a242d');fill.addColorStop(1,'#04171f');path(c,pts,true);c.fillStyle=fill;c.fill();
+ c.save();c.clip();
+ // Curved lamellae describe the volume, rather than unrelated background particles.
+ for(let j=0;j<18;j++){const yy=-r+j*r/8.5;c.strokeStyle=`rgba(141,192,177,${.055+.025*Math.sin(j)})`;c.lineWidth=1.3;c.beginPath();c.moveTo(-r,yy);c.bezierCurveTo(-r*.5,yy-r*.22,r*.55,yy+r*.26,r,yy+r*.06);c.stroke();}
+ sphere(c,r*.2,-r*.04,r*.33,'dark');
+ c.save();c.translate(r*.2,-r*.04);for(let j=0;j<7;j++){c.strokeStyle='rgba(136,181,173,.16)';c.lineWidth=2.5;c.beginPath();c.ellipse(0,0,r*(.1+j*.028),r*(.04+j*.035),j*.22,0,TAU);c.stroke();}c.restore();
+ // A few organelle-like bodies: bounded, structural, not flying particles.
+ for(let j=0;j<5;j++){const a=j*1.13+depth;const ox=Math.cos(a)*r*.65,oy=Math.sin(a)*r*.62;c.save();c.translate(ox,oy);c.rotate(a);c.scale(1,.42);sphere(c,0,0,r*.12,'mint',.55);c.restore();}
+ c.restore();
+ c.strokeStyle='rgba(122,186,173,.36)';c.lineWidth=7;path(c,pts,true);c.stroke();c.strokeStyle='rgba(220,236,213,.48)';c.lineWidth=1.4;c.stroke();
+ // Thick lit rim toward the soft key light.
+ c.beginPath();c.ellipse(0,0,r*.985,r*.985,0,Math.PI*1.02,Math.PI*1.65);c.strokeStyle='rgba(175,213,194,.56)';c.lineWidth=4;c.stroke();c.restore();
+}
+function tissue(c:CanvasRenderingContext2D,t:number){
+ const z=mix(.98,3.8,ease(t,.75,2.3));c.save();c.translate(540,1030);c.scale(z,z);c.translate(-490-mix(0,60,ease(t,.7,2.3)),-1030);
+ const cells=[[30,550,310,2],[1000,670,360,3],[940,1420,330,4],[80,1600,340,1],[490,1020,350,0]];
+ cells.forEach(([x,y,r,d])=>cell(c,x+Math.sin(t*.2+d)*9,y+Math.cos(t*.16+d)*7,r,d,t));
+ // The warm material cue is the same hormone we meet in the following close-up.
+ c.save();c.translate(520,1040);molecule(c,t,.24,0,0,false,0);c.restore();c.restore();
+}
+const atoms:V3[]=[];const bonds:[number,number][]=[];
+for(let ring=0;ring<2;ring++){for(let j=0;j<6;j++){const a=j/6*TAU+Math.PI/6;atoms.push([(ring?108:-108)+Math.cos(a)*92,Math.sin(a)*92,Math.sin(a*2+ring)*18]);bonds.push([ring*6+j,ring*6+(j+1)%6]);}}
+atoms.push([0,-6,0],[-240,50,-20],[-295,90,-12],[-336,56,12]);bonds.push([0,12],[9,12],[3,13],[13,14],[14,15]);
+const iodine=[{from:1,pos:[-108,-198,12] as V3},{from:5,pos:[-108,198,-12] as V3},{from:7,pos:[108,-198,10] as V3},{from:11,pos:[108,198,-10] as V3}];
+function molecule(c:CanvasRenderingContext2D,t:number,size:number,ry:number,rx:number,remove:boolean,change:number,labels=false){
+ c.save();const ps=atoms.map(a=>project(a,ry,rx,size));bonds.forEach(([a,b])=>tube(c,ps[a],ps[b],7*size));
+ const ips=iodine.map((a,i)=>{let pos=[...a.pos] as V3;if(remove&&i===2){pos=[pos[0]+change*380,pos[1]-change*190,pos[2]+change*180];}return project(pos,ry,rx,size);});
+ iodine.forEach((a,i)=>{if(i!==2||!remove||change<.22){c.save();if(i===2&&remove)c.globalAlpha=1-clamp(change/.22);tube(c,ps[a.from],ips[i],8*size,'gold');c.restore();}});
+ const ordered=[...ps.map((p,i)=>({p,r:(i===12?19:i>12?16:22)*size,kind:(i===12?'gold':'pearl') as 'gold'|'pearl',i})),...ips.map((p,i)=>({p,r:36*size,kind:'gold' as const,i:20+i}))].sort((a,b)=>a.p.z-b.p.z);
+ for(const a of ordered){if(remove&&a.i===22&&change>.75)continue;sphere(c,a.p.x,a.p.y,a.r*a.p.k,a.kind);if(labels&&a.i>=20){c.fillStyle='#493628';c.textAlign='center';c.textBaseline='middle';c.font=`500 ${24*size*a.p.k}px Studio`;c.fillText('I',a.p.x,a.p.y);}}
+ c.restore();
+}
+function chemistry(c:CanvasRenderingContext2D,t:number,revision:number){
+ const travel=ease(t,4.65,6.1);const z=mix(1.45,.62,travel);c.save();c.translate(mix(560,600,travel),mix(1010,930,travel));c.rotate(mix(-.13,.15,travel));
+ // Offset makes the ring skeleton readable while preserving clear perspective.
+ molecule(c,t,z,.28+Math.sin(t*.33)*.17,-.16, true,ease(t,1.9,3.75),revision>=2);c.restore();
+ if(t>1.85&&t<4.5){const u=ease(t,1.85,2.4);c.save();c.globalAlpha=u;c.strokeStyle='rgba(215,178,126,.45)';c.lineWidth=1.5;c.beginPath();c.moveTo(820,760);c.lineTo(940,700);c.lineTo(980,700);c.stroke();c.fillStyle=gold;c.textAlign='right';c.font=`400 ${revision===1?27:34}px Studio`;c.fillText('− I',980,675);c.restore();}
+}
+// A protein as a folded ribbon sculpture. Its geometry is intentionally schematic.
+function proteinRibbonPoints(seed:number,side:number,open:number):V3[]{
+ const pts:V3[]=[];for(let i=0;i<=100;i++){const u=i/100;const phase=u*Math.PI*6.5+seed*.9;const x=side*(95+Math.sin(u*Math.PI)*80)+Math.sin(phase)*49;const y=-210+u*420;const z=Math.cos(phase)*70+Math.sin(u*Math.PI*2)*28;pts.push([x+side*open*20,y,z]);}return pts;
+}
+function protein(c:CanvasRenderingContext2D,t:number,scale:number,ry:number,opening:number,revision:number){
+ const strips:{a:P2;b:P2;z:number;width:number;shade:number}[]=[];
+ for(let j=0;j<6;j++){const side=j<3?-1:1;const points=proteinRibbonPoints(j,side,opening);const offset=(j%3-1)*28;
+ for(let i=0;i<points.length-1;i++){const p=points[i],q=points[i+1];const a=project([p[0]+offset,p[1],p[2]+(j%3-1)*45],ry,-.12,scale),b=project([q[0]+offset,q[1],q[2]+(j%3-1)*45],ry,-.12,scale);strips.push({a,b,z:(a.z+b.z)/2,width:(revision===1?21:25)*scale,shade:clamp((a.z+140)/280)});}}
+ strips.sort((a,b)=>a.z-b.z);c.lineJoin='round';c.lineCap='round';
+ for(const s of strips){const v=Math.round(65+s.shade*140);c.strokeStyle=`rgb(${v*.84},${v},${v*.94})`;c.lineWidth=s.width*(s.a.k+s.b.k)/2;c.beginPath();c.moveTo(s.a.x,s.a.y);c.lineTo(s.b.x,s.b.y);c.stroke();c.strokeStyle=`rgba(231,235,210,${.08+s.shade*.2})`;c.lineWidth=1.3*scale;c.beginPath();c.moveTo(s.a.x-s.width*.2,s.a.y);c.lineTo(s.b.x-s.width*.2,s.b.y);c.stroke();}
+ // Two DNA-binding arms keep the receptor connected to its response element in the composition.
+ c.strokeStyle='#647f78';c.lineWidth=14*scale;c.beginPath();c.moveTo(-90*scale,190*scale);c.bezierCurveTo(-130*scale,260*scale,-70*scale,330*scale,-30*scale,355*scale);c.moveTo(90*scale,190*scale);c.bezierCurveTo(130*scale,260*scale,80*scale,320*scale,32*scale,355*scale);c.stroke();
+}
+function helix(c:CanvasRenderingContext2D,t:number,x:number,y:number,scale:number,angle:number,response:number,length=1100){
+ c.save();c.translate(x,y);c.rotate(angle);const phase=.25+t*.12;const pitch=245;const radius=74;const total=length;
+ const p=(u:number,side:number):P2=>{const a=u/pitch*TAU+phase+side*Math.PI;return {x:u-total/2,y:Math.sin(a)*radius,z:Math.cos(a)*radius,k:1};};
+ // Back links, then paired bases and front ribbons: proper occlusion is legible on a phone.
+ const edges:{a:P2;b:P2;side:number}[]=[];for(let u=0;u<total;u+=4)for(let side=0;side<2;side++)edges.push({a:p(u,side),b:p(u+4,side),side});
+ c.scale(scale,scale);
+ const paintEdges=(front:boolean)=>{for(const e of edges){if((e.a.z>=0)!==front)continue;const hot=response*Math.exp(-Math.pow(e.a.x/240,2));c.strokeStyle=e.side===0?(front?'#cad6c4':'#365957'):(front?`rgb(${Math.round(160+hot*60)},${Math.round(132+hot*37)},${Math.round(96+hot*16)})`:'#514c3e');c.lineWidth=front?13:9;c.lineCap='round';c.beginPath();c.moveTo(e.a.x,e.a.y);c.lineTo(e.b.x,e.b.y);c.stroke();}};
+ paintEdges(false);
+ for(let u=0;u<=total;u+=22){const a=p(u,0),b=p(u,1);const brightness=clamp((a.z+radius)/(2*radius));c.lineWidth=5.5;const hot=response*Math.exp(-Math.pow(a.x/240,2));c.strokeStyle=`rgba(${Math.round(88+hot*105)},${Math.round(117+hot*48)},${Math.round(112+hot*4)},${.38+brightness*.4})`;c.beginPath();c.moveTo(a.x,a.y);c.lineTo(b.x,b.y);c.stroke();sphere(c,a.x,a.y,7,a.z>0?'pearl':'dark');sphere(c,b.x,b.y,7,b.z>0?'gold':'dark');}
+ paintEdges(true);c.restore();
+}
+function nucleus(c:CanvasRenderingContext2D,t:number){
+ c.save();c.translate(540,1000);c.rotate(-.2);for(let j=0;j<6;j++){c.strokeStyle=`rgba(127,165,156,${.09-j*.011})`;c.lineWidth=j===0?10:2;c.beginPath();c.ellipse(0,0,480+j*40,620+j*40,0,0,TAU);c.stroke();}c.restore();
+}
+function receptor(c:CanvasRenderingContext2D,t:number,revision:number){
+ const into=ease(t,5.0,5.9),shift=ease(t,9.65,11.25);nucleus(c,t);
+ c.save();c.translate(mix(0,-310,shift),mix(0,-540,shift));c.translate(540,1100);c.scale(mix(.8,1,into),mix(.8,1,into));
+ helix(c,t,0,420,1.1,.04,0,1600);
+ c.save();c.translate(0,-30);protein(c,t,1.55,.14+Math.sin(t*.17)*.14,1-ease(t,5.9,6.9),revision);
+ const bind=ease(t,5.32,6.9);c.save();c.translate(mix(510,0,bind),mix(-280,-95,bind));molecule(c,t,.36,.4,-.15,true,1,false);c.restore();
+ // Binding-pocket contact closes only when the phrase says "связывается".
+ if(bind>.8){c.strokeStyle=`rgba(238,192,130,${(bind-.8)*2.8})`;c.lineWidth=2;c.beginPath();c.ellipse(0,-95,110,69,-.1,0,TAU);c.stroke();}c.restore();c.restore();
+}
+function genomic(c:CanvasRenderingContext2D,t:number,revision:number){
+ const u=ease(t,9.8,11.4);const turn=mix(.04,-.61,u);const scale=mix(1.1,2.1,u);const respond=smooth(t,10.26,11.9);
+ // Receptor remains a separate object bound to DNA; no protein→DNA morph.
+ c.save();c.translate(mix(540,310,u),mix(1070,670,u));c.scale(mix(1.55,.68,u),mix(1.55,.68,u));c.rotate(-u*.25);protein(c,t,1,.2,0,revision);c.save();c.translate(0,-95/1.55);molecule(c,t,.24,.3,-.15,true,1);c.restore();c.restore();
+ helix(c,t,540,mix(1520,1130,u),scale,turn,respond,revision===1?1000:1250);
+ // Paired, bidirectional response strokes communicate modulation, not universal upregulation.
+ if(respond>0){c.save();c.translate(540,1130);c.rotate(turn);c.strokeStyle=`rgba(222,180,116,${respond*.7})`;c.lineWidth=2;for(let side of [-1,1]){c.beginPath();c.moveTo(-160,side*205);c.lineTo(160,side*205);c.stroke();c.beginPath();c.moveTo(-160,side*205);c.lineTo(-142,side*205-8*side);c.moveTo(160,side*205);c.lineTo(142,side*205+8*side);c.stroke();}c.restore();}
+}
+function aperture(c:CanvasRenderingContext2D,u:number,draw:()=>void){c.save();c.beginPath();c.arc(540,1020,Math.max(.01,u)*1400,0,TAU);c.clip();c.fillStyle=ink;c.fillRect(0,0,1080,1920);draw();c.restore();}
+let grain:HTMLCanvasElement|undefined;
+function grainTexture(c:CanvasRenderingContext2D){if(!grain){grain=document.createElement('canvas');grain.width=270;grain.height=480;const g=grain.getContext('2d')!;const im=g.createImageData(270,480);for(let i=0;i<270*480;i++){const v=Math.floor(noise(6831,i)*255);im.data[i*4]=v;im.data[i*4+1]=v;im.data[i*4+2]=v;im.data[i*4+3]=12;}g.putImageData(im,0,0);}c.save();c.globalAlpha=.24;c.drawImage(grain,0,0,1080,1920);c.restore();}
+function text(c:CanvasRenderingContext2D,t:number,revision:number){
+ const stage=t<1.65?0:t<5.15?1:t<9.95?2:3;
+ const starts=[0,1.65,5.15,9.95],local=t-starts[stage];const arrival=clamp(spring(local,{frequency:2.4,damping:1}));const x=84,y=280-(1-arrival)*38;
+ c.textAlign='left';c.textBaseline='alphabetic';c.fillStyle='#9eb9ae';c.font='400 30px Studio';c.letterSpacing='5px';c.fillText('ГОРМОНАЛЬНЫЙ СИГНАЛ',84,165);c.letterSpacing='0px';
+ let label='',size=74,lines:string[]=[];
+ if(stage===0){lines=['В разных','тканях'];size=92;}
+ else if(stage===1){lines=[t<3.96?'T₄':'T₃'];size=194;}
+ else if(stage===2){lines=['Связывание','с рецептором'];size=74;}
+ else {lines=['Влияние на','экспрессию генов'];size=revision===1?64:70;}
+ c.fillStyle=ivory;c.font=`400 ${size}px Studio`;let maxWidth=0;lines.forEach((l,i)=>{c.fillText(l,x,y+i*size*1.16);maxWidth=Math.max(maxWidth,c.measureText(l).width);});label=lines.join(' ');
+ if(stage===1){c.fillStyle=gold;c.font='400 33px Studio';c.fillText(t<3.96?'ТИРОКСИН':'ТРИЙОДТИРОНИН',x,y+72);}
+ if(stage===2){c.fillStyle=gold;c.font='400 32px Studio';c.fillText('T₃ · ТИРЕОИДНЫЙ РЕЦЕПТОР',x,y+size*2.16+32);}
+ if(stage===3){c.fillStyle=gold;c.font='400 32px Studio';c.fillText('РЕГУЛЯЦИЯ ГЕННОГО ОТВЕТА',x,y+size*2.16+32);}
+ // A small quiet statement distinguishes stylization from a molecular structure claim.
+ c.fillStyle='#93ada4';c.font=`400 ${revision===1?28:31}px Studio`;c.fillText('СТИЛИЗОВАННАЯ МОЛЕКУЛЯРНАЯ СЦЕНА',84,1798);
+ return {label,bounds:{x,y:y-size,width:maxWidth,height:lines.length*size*1.16},min:revision===1?28:30};
+}
+export function draw(c:CanvasRenderingContext2D,w:number,h:number,t:number,p:Project){
+ c.resetTransform();c.clearRect(0,0,w,h);c.fillStyle=ink;c.fillRect(0,0,w,h);c.save();c.scale(w/1080,h/1920);
+ // Restricted studio lighting: a real scene key light, no decorative glow field.
+ const bg=c.createRadialGradient(200,700,20,480,900,1200);bg.addColorStop(0,'#123239');bg.addColorStop(.65,ink);bg.addColorStop(1,'#041015');c.fillStyle=bg;c.fillRect(0,0,1080,1920);
+ if(t<2.5)tissue(c,t);
+ if(t>=1.25&&t<5.9){const u=ease(t,1.25,2.1);aperture(c,u,()=>chemistry(c,t,p.revision));}
+ if(t>=4.85&&t<10.6){const u=ease(t,4.85,5.65);aperture(c,u,()=>receptor(c,t,p.revision));}
+ if(t>=9.8){const u=ease(t,9.8,10.55);aperture(c,u,()=>genomic(c,t,p.revision));}
+ grainTexture(c);const words=text(c,t,p.revision);c.restore();
+ const sx=w/1080,sy=h/1920;return {time:t,scene:t<1.9?'tissue':t<5.9?'conversion':t<10.26?'binding':'gene-response',title:words.label,titleBounds:{x:words.bounds.x*sx,y:words.bounds.y*sy,width:words.bounds.width*sx,height:words.bounds.height*sy},subtitleBounds:{x:84*sx,y:1750*sy,height:48*sy},minTextPhonePx:words.min/3,camera:t,morph:ease(t,1.9,3.75)};
+}

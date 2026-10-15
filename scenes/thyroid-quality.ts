@@ -1,0 +1,66 @@
+import {ThyroidStage} from '../src/components/thyroid-3d';
+import {clamp,mix,noise,spring,springs} from '../src/animation/math';
+import type {Project} from '../src/types';
+
+type V3=[number,number,number];type P2={x:number;y:number;z:number;k:number};
+const TAU=Math.PI*2;
+const ink='#07181d',ivory='#f0e8d9',mint='#8bbfb5',gold='#e5ad71';
+const ease=(t:number,a:number,b:number)=>{const u=clamp((t-a)/(b-a));return u*u*u*(u*(u*6-15)+10);};
+const smooth=(t:number,a:number,b:number)=>{const u=clamp((t-a)/(b-a));return u*u*(3-2*u);};
+function path(c:CanvasRenderingContext2D,pts:[number,number][],close=false){c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));if(close)c.closePath();}
+function project(p:V3,ry:number,rx:number,scale=1):P2{const ca=Math.cos(ry),sa=Math.sin(ry),cb=Math.cos(rx),sb=Math.sin(rx);const x=p[0]*ca+p[2]*sa,z0=-p[0]*sa+p[2]*ca,y=p[1]*cb-z0*sb,z=p[1]*sb+z0*cb;const k=1100/(1100-z);return {x:x*k*scale,y:y*k*scale,z,k};}
+function sphere(c:CanvasRenderingContext2D,x:number,y:number,r:number,kind:'gold'|'mint'|'pearl'|'dark',alpha=1){
+ c.save();c.globalAlpha*=alpha;const g=c.createRadialGradient(x-r*.36,y-r*.42,r*.02,x+r*.1,y+r*.12,r*1.05);
+ const colors=kind==='gold'?['#fff0ce','#dfac6c','#835039','#382e2a']:kind==='pearl'?['#fff9ec','#c6c7bb','#647a77','#1c4245']:kind==='mint'?['#d4e8dc','#80b2a8','#335d5e','#102c33']:['#7b9e9b','#294b53','#102b35','#091d23'];
+ g.addColorStop(0,colors[0]);g.addColorStop(.35,colors[1]);g.addColorStop(.79,colors[2]);g.addColorStop(1,colors[3]);c.fillStyle=g;c.beginPath();c.arc(x,y,Math.max(.1,r),0,TAU);c.fill();
+ c.strokeStyle=kind==='gold'?'rgba(255,231,190,.3)':'rgba(211,232,217,.19)';c.lineWidth=.8;c.stroke();c.restore();
+}
+function tube(c:CanvasRenderingContext2D,a:P2,b:P2,width:number,color='mint'){
+ c.lineCap='round';const g=c.createLinearGradient(a.x,a.y,b.x,b.y);g.addColorStop(0,color==='gold'?'#8d633f':'#29494d');g.addColorStop(.45,color==='gold'?'#e9be83':'#c1d0be');g.addColorStop(1,color==='gold'?'#9c6945':'#52736e');c.strokeStyle=g;c.lineWidth=width*(a.k+b.k)/2;c.beginPath();c.moveTo(a.x,a.y);c.lineTo(b.x,b.y);c.stroke();
+}
+// Stylized volumetric tissue cells. No atlas or exact histological identity is implied.
+function cell(c:CanvasRenderingContext2D,x:number,y:number,r:number,depth:number,t:number){
+ c.save();c.translate(x,y);c.rotate(-.22+depth*.06);c.scale(1,.94+depth*.13);
+ const pts:[number,number][]=[];for(let i=0;i<120;i++){const a=i/120*TAU;const rr=r*(1+.055*Math.sin(a*3+depth)+.025*Math.cos(a*5));pts.push([Math.cos(a)*rr,Math.sin(a)*rr]);}
+ const fill=c.createRadialGradient(-r*.35,-r*.4,r*.02,r*.1,r*.12,r*1.1);fill.addColorStop(0,'#426a67');fill.addColorStop(.35,'#1e454b');fill.addColorStop(.83,'#0a242d');fill.addColorStop(1,'#04171f');path(c,pts,true);c.fillStyle=fill;c.fill();
+ c.save();c.clip();
+ // Curved lamellae describe the volume, rather than unrelated background particles.
+ for(let j=0;j<18;j++){const yy=-r+j*r/8.5;c.strokeStyle=`rgba(141,192,177,${.055+.025*Math.sin(j)})`;c.lineWidth=1.3;c.beginPath();c.moveTo(-r,yy);c.bezierCurveTo(-r*.5,yy-r*.22,r*.55,yy+r*.26,r,yy+r*.06);c.stroke();}
+ sphere(c,r*.2,-r*.04,r*.33,'dark');
+ c.save();c.translate(r*.2,-r*.04);for(let j=0;j<7;j++){c.strokeStyle='rgba(136,181,173,.16)';c.lineWidth=2.5;c.beginPath();c.ellipse(0,0,r*(.1+j*.028),r*(.04+j*.035),j*.22,0,TAU);c.stroke();}c.restore();
+ // A few organelle-like bodies: bounded, structural, not flying particles.
+ for(let j=0;j<5;j++){const a=j*1.13+depth;const ox=Math.cos(a)*r*.65,oy=Math.sin(a)*r*.62;c.save();c.translate(ox,oy);c.rotate(a);c.scale(1,.42);sphere(c,0,0,r*.12,'mint',.55);c.restore();}
+ c.restore();
+ c.strokeStyle='rgba(122,186,173,.36)';c.lineWidth=7;path(c,pts,true);c.stroke();c.strokeStyle='rgba(220,236,213,.48)';c.lineWidth=1.4;c.stroke();
+ // Thick lit rim toward the soft key light.
+ c.beginPath();c.ellipse(0,0,r*.985,r*.985,0,Math.PI*1.02,Math.PI*1.65);c.strokeStyle='rgba(175,213,194,.56)';c.lineWidth=4;c.stroke();c.restore();
+}
+function tissue(c:CanvasRenderingContext2D,t:number){
+ const z=mix(.98,3.8,ease(t,.75,2.3));c.save();c.translate(540,1030);c.scale(z,z);c.translate(-490-mix(0,60,ease(t,.7,2.3)),-1030);
+ const cells=[[30,550,310,2],[1000,670,360,3],[940,1420,330,4],[80,1600,340,1],[490,1020,350,0]];
+ cells.forEach(([x,y,r,d])=>cell(c,x+Math.sin(t*.2+d)*9,y+Math.cos(t*.16+d)*7,r,d,t));
+ // The warm material cue is the same hormone we meet in the following close-up.
+ c.save();c.translate(520,1040);sphere(c,0,0,9,'gold');c.restore();c.restore();
+}
+
+let stage:ThyroidStage|undefined;
+function typography(c:CanvasRenderingContext2D,t:number){
+ c.fillStyle='#eee8da';c.textBaseline='alphabetic';c.textAlign='left';
+ let lines:string[],size:number;
+ if(t<1.9){lines=['Внутри','тканей'];size=102;}
+ else if(t<5.2){lines=[t<3.96?'T₄':'T₃'];size=202;}
+ else if(t<10.26){lines=['Молекула','и рецептор'];size=86;}
+ else {lines=['Экспрессия','генов'];size=94;}
+ const x=78,y=268;let width=0;c.font=`400 ${size}px Studio`;
+ lines.forEach((l,i)=>{c.fillText(l,x,y+i*size*1.06);width=Math.max(width,c.measureText(l).width);});
+ return {title:lines.join(' '),bounds:{x,y:y-size,width,height:size*lines.length*1.06},size};
+}
+export function draw(c:CanvasRenderingContext2D,w:number,h:number,t:number,p:Project){
+ c.resetTransform();c.clearRect(0,0,w,h);c.save();c.scale(w/1080,h/1920);
+ const light=c.createRadialGradient(240,900,20,540,1100,1400);light.addColorStop(0,'#153b3c');light.addColorStop(.6,'#071c22');light.addColorStop(1,'#020a10');c.fillStyle=light;c.fillRect(0,0,1080,1920);
+ if(t<2.1)tissue(c,t);
+ if(t>=1.25){stage??=new ThyroidStage();const img=stage.render(t,p.revision);const u=ease(t,1.25,2.05);c.save();c.beginPath();c.arc(540,1040,Math.max(.01,u)*1500,0,TAU);c.clip();c.fillStyle=light;c.fillRect(0,0,1080,1920);c.drawImage(img,0,0);c.restore();}
+ const shade=c.createLinearGradient(0,0,0,650);shade.addColorStop(0,'rgba(2,10,16,.94)');shade.addColorStop(.55,'rgba(2,10,16,.6)');shade.addColorStop(1,'rgba(2,10,16,0)');c.fillStyle=shade;c.fillRect(0,0,1080,650);
+ const txt=typography(c,t);c.restore();const sx=w/1080,sy=h/1920;
+ return {time:t,scene:t<1.9?'tissue':t<5.9?'conversion':t<10.26?'binding':'gene-response',title:txt.title,titleBounds:{x:txt.bounds.x*sx,y:txt.bounds.y*sy,width:txt.bounds.width*sx,height:txt.bounds.height*sy},subtitleBounds:{x:0,y:h,height:0},minTextPhonePx:txt.size/3,camera:t,morph:ease(t,2.05,3.96)};
+}

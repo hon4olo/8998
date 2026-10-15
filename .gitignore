@@ -8,3 +8,6 @@ out/frames/
 *.log
 out/*/frame-*.png
 out/*/cache.json
+# Full supplied recording/transcript remain local; selected scene WAV is retained for reproduction.
+projects/voice-quality/assets/voiceover-original.mp3
+projects/voice-quality/docs/transcript-asr.json

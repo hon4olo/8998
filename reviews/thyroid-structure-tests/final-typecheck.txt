@@ -1,0 +1,4 @@
+
+> znaya-motion-studio@1.0.0 typecheck
+> tsc
+

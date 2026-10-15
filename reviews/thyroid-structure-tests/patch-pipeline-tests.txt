@@ -1,0 +1,10 @@
+✔ reference video extracts real frames every 0.5 second (1185.155099ms)
+✔ partial correction replaces selected cached frames and rebuilds a full real MP4 (5075.585448ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6514.090875

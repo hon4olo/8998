@@ -1,0 +1,20 @@
+{
+  "command": [
+    "npx",
+    "tsx",
+    "scripts/render.ts",
+    "--project",
+    "projects/voice-quality/project-structure-v3.json",
+    "--name",
+    "thyroid-structure-v3",
+    "--scale",
+    "0.5"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 429.37824309400094,
+  "sampledProcessTreeCpuSeconds": 585.44,
+  "peakProcessTreeRSSMiB": 870.546875,
+  "samples": 3079,
+  "gpu": false,
+  "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"
+}

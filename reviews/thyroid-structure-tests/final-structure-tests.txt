@@ -1,0 +1,11 @@
+✔ retained official coordinate sources match provenance SHA256 (13.32595ms)
+✔ T4 to T3 retains chemical graph after outer ring iodine removal (5.589096ms)
+✔ rendered receptor trace is the deposited 2H77 CA geometry up to rigid transform (45.53278ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 402.882886

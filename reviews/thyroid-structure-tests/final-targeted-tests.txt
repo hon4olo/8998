@@ -1,0 +1,12 @@
+✔ thyroid composition: arbitrary seeks repeat across fresh browser sessions (47268.627101ms)
+✔ retained official coordinate sources match provenance SHA256 (7.088278ms)
+✔ T4 to T3 retains chemical graph after outer ring iodine removal (1.023223ms)
+✔ rendered receptor trace is the deposited 2H77 CA geometry up to rigid transform (4.671173ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48265.849148

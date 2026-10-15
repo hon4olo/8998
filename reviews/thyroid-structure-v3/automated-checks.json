@@ -1,0 +1,59 @@
+{
+  "video": "/workspace/777/out/thyroid-structure-v3.mp4",
+  "duration": 12.4,
+  "width": 540,
+  "height": 960,
+  "fps": 30.0,
+  "samples": 25,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": 28.666666666666668,
+  "readabilityHeuristicPass": true,
+  "titleSubtitleOverlapTimes": [],
+  "titleHorizontalOverflowTimes": [],
+  "sync": {
+    "status": "decoded original vs AAC, same clock/no time stretching",
+    "zeroLagCorrelation": 0.9999531937942066,
+    "wordCueChecks": [
+      {
+        "cue": "tissue",
+        "matched": true
+      },
+      {
+        "cue": "conversion",
+        "matched": true
+      },
+      {
+        "cue": "T3",
+        "matched": true
+      },
+      {
+        "cue": "binding",
+        "matched": true
+      },
+      {
+        "cue": "response",
+        "matched": true
+      },
+      {
+        "cue": "expression",
+        "matched": true
+      }
+    ],
+    "passed": true,
+    "note": "Correlation checks timing preservation; semantic alignment requires supplied timestamps and visual/listening review."
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 0,
+    "sha256": [
+      "8c2ee8b9cf290596649fdf142cc01a0c50bfaf0d1b6b4e4f788d100ee7a5a423",
+      "8c2ee8b9cf290596649fdf142cc01a0c50bfaf0d1b6b4e4f788d100ee7a5a423"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

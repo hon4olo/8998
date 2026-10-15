@@ -1,0 +1,21 @@
+{
+  "command": [
+    "npx",
+    "tsx",
+    "scripts/render.ts",
+    "--project",
+    "projects/voice-quality/project.json",
+    "--name",
+    "znaya-thyroid-structure-final",
+    "--patch",
+    "--ranges",
+    "4.85:5.6,10.26:12.4"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 151.8489900090026,
+  "sampledProcessTreeCpuSeconds": 198.78,
+  "peakProcessTreeRSSMiB": 912.05859375,
+  "samples": 1101,
+  "gpu": false,
+  "method": "/proc 100ms; summed RSS may double-count shared pages; short-lived children CPU may be missed"
+}

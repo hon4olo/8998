@@ -1,0 +1,59 @@
+{
+  "video": "/workspace/777/out/znaya-thyroid-structure-final.mp4",
+  "duration": 12.4,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30.0,
+  "samples": 25,
+  "nonblank": true,
+  "minimumDeclaredTextPhonePx": 28.666666666666668,
+  "readabilityHeuristicPass": true,
+  "titleSubtitleOverlapTimes": [],
+  "titleHorizontalOverflowTimes": [],
+  "sync": {
+    "status": "decoded original vs AAC, same clock/no time stretching",
+    "zeroLagCorrelation": 0.9999531937942066,
+    "wordCueChecks": [
+      {
+        "cue": "tissue",
+        "matched": true
+      },
+      {
+        "cue": "conversion",
+        "matched": true
+      },
+      {
+        "cue": "T3",
+        "matched": true
+      },
+      {
+        "cue": "binding",
+        "matched": true
+      },
+      {
+        "cue": "response",
+        "matched": true
+      },
+      {
+        "cue": "expression",
+        "matched": true
+      }
+    ],
+    "passed": true,
+    "note": "Correlation checks timing preservation; semantic alignment requires supplied timestamps and visual/listening review."
+  },
+  "loop": {
+    "required": false,
+    "status": "not requested"
+  },
+  "determinism": {
+    "time": 0,
+    "sha256": [
+      "4ab25b83b708aff2a63ff37de8ae5348a6406a0d94a2453750b4be2e04bb17bc",
+      "4ab25b83b708aff2a63ff37de8ae5348a6406a0d94a2453750b4be2e04bb17bc"
+    ],
+    "pass": true,
+    "browser": "141.0.7390.37"
+  },
+  "visualReview": "pending: agent must open actual evidence; no automatic aesthetic scores"
+}

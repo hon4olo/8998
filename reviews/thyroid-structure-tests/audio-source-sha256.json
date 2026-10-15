@@ -1,0 +1,10 @@
+{
+  "file": "projects/voice-quality/assets/excerpt.wav",
+  "sha256": "a00ce3eb2c1a24e64d45cdea34d4de59a7e3525ed3f0c2347e77f39020b646d3",
+  "sourceInterval": [
+    28.72,
+    41.12
+  ],
+  "duration": 12.4,
+  "operation": "unchanged supplied excerpt, no music, no speed/pitch/gain processing"
+}
